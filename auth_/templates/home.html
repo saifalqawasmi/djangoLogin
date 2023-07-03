@@ -86,6 +86,7 @@
             }
 
             var list_snapshot = []
+            var list_snapshot2 = []
             commentList()
             
             function commentList(){
@@ -142,8 +143,15 @@
                         }
                         
                         for (var i in notUser_list){
+
+                              try{
+                                    document.getElementById(`data2-${i}`).remove()
+                              }catch(err){
+
+                              }
+                              
                               var item2 = `
-                                          <div id="data-${i}" class="card-body">
+                                          <div id="data2-${i}" class="card-body">
                                                 <div class='d-flex justify-content-between'>
                                                       <h5 class="card-title"> ${notUser_list[i].title}</h5>
                                                 </div>
@@ -161,6 +169,14 @@
                               }
                         }
                         list_snapshot = user_list
+
+                        if(list_snapshot2.length > notUser_list.length){
+                              for(var i = notUser_list.length; i < list_snapshot2.length; i++){
+                                    document.getElementById(`data2-${i}`).remove()
+                              }
+                        }
+                        list_snapshot2 = notUser_list
+
 
                         for (i in user_list){
                               var btn = document.getElementsByClassName('btn-delete')[i]
