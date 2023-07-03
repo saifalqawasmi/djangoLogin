@@ -8,3 +8,8 @@ from .models import Comments
 def addComment(request):
     comments = Comments.objects.all()
     return render(request, 'commentA.html', {'comments': comments})
+
+
+def editComment(request, id):
+    comments = Comments.objects.all()
+    return render(request, 'commentE.html', {"id": id,'comments': comments})
