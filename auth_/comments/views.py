@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from .models import Comments
 
 # Create your views here.
-s
+
 
 def addComment(request):
     comments = Comments.objects.all()
